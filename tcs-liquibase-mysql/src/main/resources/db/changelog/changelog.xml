@@ -1,0 +1,26 @@
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <!-- Incluimos el script de creación de tablas -->
+    <include file="db/scripts/SchemaCustomer.sql"/>
+    <include file="db/scripts/SchemaAccount.sql"/>
+
+    <!-- Insertamos datos usando sqlFile dentro de un changeSet -->
+    <changeSet id="insert-data" author="alex">
+        <sqlFile path="../scripts/DataCustomer.sql"
+                 relativeToChangelogFile="true"
+                 splitStatements="true"
+                 stripComments="false"/>
+    </changeSet>
+
+    <changeSet id="insert-data-account" author="alex">
+        <sqlFile path="../scripts/DataAccount.sql"
+                 relativeToChangelogFile="true"
+                 splitStatements="true"
+                 stripComments="false"/>
+    </changeSet>
+
+</databaseChangeLog>

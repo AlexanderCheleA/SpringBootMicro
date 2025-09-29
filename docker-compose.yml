@@ -1,0 +1,75 @@
+version: "3.8"
+
+services:
+  mysql-db:
+    image: mysql:8.0
+    container_name: mysql-db
+    ports:
+      - "${MYSQL_PORT}:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - bank-net
+
+  liquibase:
+    build:
+      context: ./tcs-liquibase-mysql
+      dockerfile: Dockerfile
+    environment:
+      SLEEP_LENGTH: 15
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_HOST: mysql-db
+    depends_on:
+      - mysql-db
+    networks:
+      - bank-net
+
+  tcs-customer-back:
+    build:
+      context: ./tcs-customer-back
+      dockerfile: Dockerfile
+    container_name: tcs-customer-back
+    ports:
+      - "8081:8080"
+    environment:
+      SLEEP_LENGTH: 15
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-db:3306/${MYSQL_DATABASE}?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+      SPRING_DATASOURCE_USERNAME: ${MYSQL_USER}
+      SPRING_DATASOURCE_PASSWORD: ${MYSQL_PASSWORD}
+    depends_on:
+      - mysql-db
+      - liquibase
+    networks:
+      - bank-net
+  
+  tcs-accounts-back:
+    build:
+      context: ./tcs-accounts-back
+      dockerfile: Dockerfile
+    container_name: tcs-accounts-back
+    ports:
+      - "8082:8080"
+    environment:
+      SLEEP_LENGTH: 1
+      CUSTOMER_SERVICE_URL: http://tcs-customer-back:8080/api/v1/clientes
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-db:3306/${MYSQL_DATABASE}?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+      SPRING_DATASOURCE_USERNAME: ${MYSQL_USER}
+      SPRING_DATASOURCE_PASSWORD: ${MYSQL_PASSWORD}
+    depends_on:
+      - liquibase
+    networks:
+      - bank-net
+  
+volumes:
+  mysql_data:
+
+networks:
+  bank-net:
+    driver: bridge

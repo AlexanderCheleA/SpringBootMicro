@@ -1,0 +1,2053 @@
+{
+	"info": {
+		"_postman_id": "d75eda12-e059-47c6-80e0-a8322232631d",
+		"name": "EjercicioMicroServicios",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12771234"
+	},
+	"item": [
+		{
+			"name": "F1",
+			"item": [
+				{
+					"name": "clienteCRUD",
+					"item": [
+						{
+							"name": "createCustomer",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Testtttttt\",\r\n    \"gender\": \"Male\",\r\n    \"age\": 30,\r\n    \"identification\": \"1111111111\",\r\n    \"address\": \"Otavalo sn y principal\",\r\n    \"phone\": \"098254785\",\r\n    \"password\": \"1234\",\r\n    \"status\": true\r\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/v1/clientes/create",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"v1",
+										"clientes",
+										"create"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "fallida",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"Testtttttt\",\r\n    \"gender\": \"Male\",\r\n    \"age\": 30,\r\n    \"address\": \"Otavalo sn y principal\",\r\n    \"phone\": \"098254785\",\r\n    \"password\": \"1234\",\r\n    \"status\": true\r\n}"
+										},
+										"url": {
+											"raw": "http://localhost:8081/api/v1/clientes/create",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8081",
+											"path": [
+												"api",
+												"v1",
+												"clientes",
+												"create"
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"name": "Content-Type",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"path\": \"/api/v1/clientes/create\",\n    \"error\": \"Bad Request\",\n    \"message\": \"Validation failed\",\n    \"errors\": {\n        \"identification\": \"La identificación es obligatoria\"\n    },\n    \"timestamp\": \"2025-09-28T23:41:52.607632465Z\",\n    \"status\": 400\n}"
+								},
+								{
+									"name": "fallida ya existe",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"Testtttttt\",\r\n    \"gender\": \"Male\",\r\n    \"age\": 30,\r\n    \"identification\": \"1111111111\",\r\n    \"address\": \"Otavalo sn y principal\",\r\n    \"phone\": \"098254785\",\r\n    \"password\": \"1234\",\r\n    \"status\": true\r\n}"
+										},
+										"url": {
+											"raw": "http://localhost:8081/api/v1/clientes/create",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8081",
+											"path": [
+												"api",
+												"v1",
+												"clientes",
+												"create"
+											]
+										}
+									},
+									"status": "Conflict",
+									"code": 409,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"name": "Content-Type",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"path\": \"/api/v1/clientes/create\",\n    \"error\": \"Conflict\",\n    \"message\": \"Ya existe un cliente activo con esta identificación: 1111111111\",\n    \"timestamp\": \"2025-09-28T23:43:15.950505779Z\",\n    \"status\": 409\n}"
+								},
+								{
+									"name": "exito",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"Testtttttt\",\r\n    \"gender\": \"Male\",\r\n    \"age\": 30,\r\n    \"identification\": \"1111111111\",\r\n    \"address\": \"Otavalo sn y principal\",\r\n    \"phone\": \"098254785\",\r\n    \"password\": \"1234\",\r\n    \"status\": true\r\n}"
+										},
+										"url": {
+											"raw": "http://localhost:8081/api/v1/clientes/create",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8081",
+											"path": [
+												"api",
+												"v1",
+												"clientes",
+												"create"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"name": "Content-Type",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"clientId\": null,\n    \"name\": \"Testtttttt\",\n    \"gender\": \"Male\",\n    \"age\": 30,\n    \"identification\": \"1111111111\",\n    \"address\": \"Otavalo sn y principal\",\n    \"phone\": \"098254785\",\n    \"status\": true\n}"
+								}
+							]
+						},
+						{
+							"name": "findCustomerById",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8081/api/v1/clientes/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"v1",
+										"clientes",
+										"1"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "exitosa",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8081/api/v1/clientes/1",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8081",
+											"path": [
+												"api",
+												"v1",
+												"clientes",
+												"1"
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"name": "Content-Type",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"clientId\": 1,\n    \"name\": \"Jose Lema\",\n    \"gender\": \"Male\",\n    \"age\": 35,\n    \"identification\": \"001\",\n    \"address\": \"Otavalo sn y principal\",\n    \"phone\": \"098254785\",\n    \"status\": true\n}"
+								},
+								{
+									"name": "fallida",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8081/api/v1/clientes/13333",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8081",
+											"path": [
+												"api",
+												"v1",
+												"clientes",
+												"13333"
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"name": "Content-Type",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"path\": \"/api/v1/clientes/13333\",\n    \"error\": \"Not Found\",\n    \"message\": \"Cliente no encontrado con ID: 13333\",\n    \"timestamp\": \"2025-09-28T23:37:33.654297258Z\",\n    \"status\": 404\n}"
+								}
+							]
+						},
+						{
+							"name": "findCustomerAll",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8081/api/v1/clientes/all?status=true",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"v1",
+										"clientes",
+										"all"
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": "true"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "status: false",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8081/api/v1/clientes/all?status=false",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8081",
+											"path": [
+												"api",
+												"v1",
+												"clientes",
+												"all"
+											],
+											"query": [
+												{
+													"key": "status",
+													"value": "false"
+												}
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"name": "Content-Type",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"path\": \"/api/v1/clientes/all\",\n    \"error\": \"Not Found\",\n    \"message\": \"No se encontraron clientes en la base de datos\",\n    \"timestamp\": \"2025-09-28T23:39:20.783018512Z\",\n    \"status\": 404\n}"
+								},
+								{
+									"name": "status: true",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8081/api/v1/clientes/all?status=true",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8081",
+											"path": [
+												"api",
+												"v1",
+												"clientes",
+												"all"
+											],
+											"query": [
+												{
+													"key": "status",
+													"value": "true"
+												}
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"name": "Content-Type",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [],
+									"body": "[\r\n    {\r\n        \"clientId\": 1,\r\n        \"name\": \"Jose Lema\",\r\n        \"gender\": \"Male\",\r\n        \"age\": 35,\r\n        \"identification\": \"001\",\r\n        \"address\": \"Otavalo sn y principal\",\r\n        \"phone\": \"098254785\",\r\n        \"status\": true\r\n    },\r\n    {\r\n        \"clientId\": 2,\r\n        \"name\": \"Marianela Montalvo\",\r\n        \"gender\": \"Female\",\r\n        \"age\": 32,\r\n        \"identification\": \"002\",\r\n        \"address\": \"Amazonas y NNUU\",\r\n        \"phone\": \"097548965\",\r\n        \"status\": true\r\n    },\r\n    {\r\n        \"clientId\": 3,\r\n        \"name\": \"Juan Osorio\",\r\n        \"gender\": \"Male\",\r\n        \"age\": 40,\r\n        \"identification\": \"003\",\r\n        \"address\": \"13 junio y Equinoccial\",\r\n        \"phone\": \"098874587\",\r\n        \"status\": true\r\n    },\r\n    {\r\n        \"clientId\": 4,\r\n        \"name\": \"Alexander Chele\",\r\n        \"gender\": \"Male\",\r\n        \"age\": 26,\r\n        \"identification\": \"005\",\r\n        \"address\": \"Ecuador test data\",\r\n        \"phone\": \"09874587412\",\r\n        \"status\": true\r\n    }\r\n]"
+								},
+								{
+									"name": "findCustomerAll",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8081/api/v1/clientes/all",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8081",
+											"path": [
+												"api",
+												"v1",
+												"clientes",
+												"all"
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"name": "Content-Type",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"clientId\": 1,\n        \"name\": \"Jose Lema\",\n        \"gender\": \"Male\",\n        \"age\": 35,\n        \"identification\": \"001\",\n        \"address\": \"Otavalo sn y principal\",\n        \"phone\": \"098254785\",\n        \"status\": true\n    },\n    {\n        \"clientId\": 2,\n        \"name\": \"Marianela Montalvo\",\n        \"gender\": \"Female\",\n        \"age\": 32,\n        \"identification\": \"002\",\n        \"address\": \"Amazonas y NNUU\",\n        \"phone\": \"097548965\",\n        \"status\": true\n    },\n    {\n        \"clientId\": 3,\n        \"name\": \"Juan Osorio\",\n        \"gender\": \"Male\",\n        \"age\": 40,\n        \"identification\": \"003\",\n        \"address\": \"13 junio y Equinoccial\",\n        \"phone\": \"098874587\",\n        \"status\": true\n    },\n    {\n        \"clientId\": 4,\n        \"name\": \"Alexander Chele\",\n        \"gender\": \"Male\",\n        \"age\": 26,\n        \"identification\": \"005\",\n        \"address\": \"Ecuador test data\",\n        \"phone\": \"09874587412\",\n        \"status\": true\n    }\n]"
+								}
+							]
+						},
+						{
+							"name": "findCustomerPagination",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8081/api/v1/clientes/paginado?page=0&size=10&sortBy=clientId&direction=desc",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"v1",
+										"clientes",
+										"paginado"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "10"
+										},
+										{
+											"key": "sortBy",
+											"value": "clientId"
+										},
+										{
+											"key": "direction",
+											"value": "desc"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "exitosa",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8081/api/v1/clientes/paginado?page=0&size=10&sortBy=clientId&direction=desc",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8081",
+											"path": [
+												"api",
+												"v1",
+												"clientes",
+												"paginado"
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "0"
+												},
+												{
+													"key": "size",
+													"value": "10"
+												},
+												{
+													"key": "sortBy",
+													"value": "clientId"
+												},
+												{
+													"key": "direction",
+													"value": "desc"
+												}
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"name": "Content-Type",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"content\": [\n        {\n            \"clientId\": 4,\n            \"name\": \"Alexander Chele\",\n            \"gender\": \"Male\",\n            \"age\": 26,\n            \"identification\": \"005\",\n            \"address\": \"Ecuador test data\",\n            \"phone\": \"09874587412\",\n            \"status\": true\n        },\n        {\n            \"clientId\": 3,\n            \"name\": \"Juan Osorio\",\n            \"gender\": \"Male\",\n            \"age\": 40,\n            \"identification\": \"003\",\n            \"address\": \"13 junio y Equinoccial\",\n            \"phone\": \"098874587\",\n            \"status\": true\n        },\n        {\n            \"clientId\": 2,\n            \"name\": \"Marianela Montalvo\",\n            \"gender\": \"Female\",\n            \"age\": 32,\n            \"identification\": \"002\",\n            \"address\": \"Amazonas y NNUU\",\n            \"phone\": \"097548965\",\n            \"status\": true\n        },\n        {\n            \"clientId\": 1,\n            \"name\": \"Jose Lema\",\n            \"gender\": \"Male\",\n            \"age\": 35,\n            \"identification\": \"001\",\n            \"address\": \"Otavalo sn y principal\",\n            \"phone\": \"098254785\",\n            \"status\": true\n        }\n    ],\n    \"pageable\": {\n        \"pageNumber\": 0,\n        \"pageSize\": 10,\n        \"sort\": {\n            \"sorted\": true,\n            \"empty\": false,\n            \"unsorted\": false\n        },\n        \"offset\": 0,\n        \"paged\": true,\n        \"unpaged\": false\n    },\n    \"last\": true,\n    \"totalPages\": 1,\n    \"totalElements\": 4,\n    \"size\": 10,\n    \"number\": 0,\n    \"sort\": {\n        \"sorted\": true,\n        \"empty\": false,\n        \"unsorted\": false\n    },\n    \"first\": true,\n    \"numberOfElements\": 4,\n    \"empty\": false\n}"
+								},
+								{
+									"name": "fallida",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8081/api/v1/clientes/paginado?page=20&size=1000&sortBy=clientId&direction=desc",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8081",
+											"path": [
+												"api",
+												"v1",
+												"clientes",
+												"paginado"
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "20"
+												},
+												{
+													"key": "size",
+													"value": "1000"
+												},
+												{
+													"key": "sortBy",
+													"value": "clientId"
+												},
+												{
+													"key": "direction",
+													"value": "desc"
+												}
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"name": "Content-Type",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"path\": \"/api/v1/clientes\",\n    \"error\": \"Not Found\",\n    \"message\": \"No se encontraron clientes en la base de datos\",\n    \"timestamp\": \"2025-09-28T23:40:55.518466625Z\",\n    \"status\": 404\n}"
+								}
+							]
+						},
+						{
+							"name": "updateCustomer",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Jose Lema\",\r\n    \"gender\": \"Male\",\r\n    \"age\": 70,\r\n    \"identification\": \"001\",\r\n    \"address\": \"Otavalo sn y principal\",\r\n    \"phone\": \"098254785\",\r\n    \"password\": \"12222222\",\r\n    \"status\": true\r\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/v1/clientes/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"v1",
+										"clientes",
+										"1"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "error",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"Jose Lema\",\r\n    \"gender\": \"Male\",\r\n    \"age\": 70,\r\n    \"identification\": \"001\",\r\n    \"address\": \"Otavalo sn y principal\",\r\n    \"phone\": \"098254785\",\r\n    \"password\": \"12222222\"\r\n}"
+										},
+										"url": {
+											"raw": "http://localhost:8081/api/v1/clientes/1",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8081",
+											"path": [
+												"api",
+												"v1",
+												"clientes",
+												"1"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": "{\r\n    \"path\": \"/api/v1/clientes/1\",\r\n    \"error\": \"Bad Request\",\r\n    \"message\": \"Validation failed\",\r\n    \"errors\": {\r\n        \"status\": \"El estado es obligatorio\"\r\n    },\r\n    \"timestamp\": \"2025-09-28T23:49:58.375266180Z\",\r\n    \"status\": 400\r\n}"
+								},
+								{
+									"name": "exito",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"Jose Lema\",\r\n    \"gender\": \"Male\",\r\n    \"age\": 70,\r\n    \"identification\": \"001\",\r\n    \"address\": \"Otavalo sn y principal\",\r\n    \"phone\": \"098254785\",\r\n    \"password\": \"12222222\",\r\n    \"status\": true\r\n}"
+										},
+										"url": {
+											"raw": "http://localhost:8081/api/v1/clientes/1",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8081",
+											"path": [
+												"api",
+												"v1",
+												"clientes",
+												"1"
+											]
+										}
+									},
+									"status": "Accepted",
+									"code": 202,
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": "{\r\n    \"clientId\": 1,\r\n    \"name\": \"Jose Lema\",\r\n    \"gender\": \"Male\",\r\n    \"age\": 70,\r\n    \"identification\": \"001\",\r\n    \"address\": \"Otavalo sn y principal\",\r\n    \"phone\": \"098254785\",\r\n    \"status\": true\r\n}"
+								}
+							]
+						},
+						{
+							"name": "deleteCustomer",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8081/api/v1/clientes/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"v1",
+										"clientes",
+										"1"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "exito",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8081/api/v1/clientes/1",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8081",
+											"path": [
+												"api",
+												"v1",
+												"clientes",
+												"1"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"name": "Content-Type",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [],
+									"body": "{\r\n    \"message\": \"El cliente ha sido eliminado con éxito\",\r\n    \"customer\": {\r\n        \"clientId\": 1,\r\n        \"name\": \"Jose Lema\",\r\n        \"gender\": \"Male\",\r\n        \"age\": 35,\r\n        \"identification\": \"001\",\r\n        \"address\": \"Otavalo sn y principal\",\r\n        \"phone\": \"098254785\",\r\n        \"status\": false\r\n    }\r\n}"
+								},
+								{
+									"name": "error",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8081/api/v1/clientes/1",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8081",
+											"path": [
+												"api",
+												"v1",
+												"clientes",
+												"1"
+											]
+										}
+									},
+									"status": "Conflict",
+									"code": 409,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"name": "Content-Type",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"path\": \"/api/v1/clientes/1\",\n    \"error\": \"Conflict\",\n    \"message\": \"El cliente con ID 1 ya está inactivo.\",\n    \"timestamp\": \"2025-09-28T23:50:32.982846472Z\",\n    \"status\": 409\n}"
+								}
+							]
+						},
+						{
+							"name": "getByNameClient",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8081/api/v1/clientes/buscar?name=Jose Lema",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"v1",
+										"clientes",
+										"buscar"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "Jose Lema"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "error",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8081/api/v1/clientes/buscar?name=Juan Pérez",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8081",
+											"path": [
+												"api",
+												"v1",
+												"clientes",
+												"buscar"
+											],
+											"query": [
+												{
+													"key": "name",
+													"value": "Juan Pérez"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"name": "Content-Type",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"path\": \"/api/v1/clientes/buscar\",\n    \"error\": \"Not Found\",\n    \"message\": \"Cliente no encontrado con nombre: Juan Pérez\",\n    \"timestamp\": \"2025-09-29T02:32:36.333582187Z\",\n    \"status\": 404\n}"
+								},
+								{
+									"name": "exito",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8081/api/v1/clientes/buscar?name=Jose Lema",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8081",
+											"path": [
+												"api",
+												"v1",
+												"clientes",
+												"buscar"
+											],
+											"query": [
+												{
+													"key": "name",
+													"value": "Jose Lema"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"name": "Content-Type",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"clientId\": 1,\n    \"name\": \"Jose Lema\",\n    \"gender\": \"Male\",\n    \"age\": 35,\n    \"identification\": \"001\",\n    \"address\": \"Otavalo sn y principal\",\n    \"phone\": \"098254785\",\n    \"status\": true\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "cuentaCrud",
+					"item": [
+						{
+							"name": "createAccount",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"accountType\": \"Ahorros\",\r\n    \"initialBalance\": 500.00,\r\n    \"status\": true,\r\n    \"clientId\": 1\r\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8082/api/v1/cuenta/create",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8082",
+									"path": [
+										"api",
+										"v1",
+										"cuenta",
+										"create"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "createAccount",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"accountType\": \"Ahorros\",\r\n    \"initialBalance\": 500.00,\r\n    \"status\": true,\r\n    \"clientId\": 1\r\n}"
+										},
+										"url": {
+											"raw": "http://localhost:8082/api/v1/cuenta/create",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8082",
+											"path": [
+												"api",
+												"v1",
+												"cuenta",
+												"create"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"name": "Content-Type",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"accountNumber\": 496826,\n    \"accountType\": \"Ahorros\",\n    \"initialBalance\": 500,\n    \"status\": true,\n    \"clientId\": 1\n}"
+								},
+								{
+									"name": "error",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"accountNumber\": 496826,\r\n    \"accountType\": \"Ahorros\",\r\n    \"initialBalance\": 500.00,\r\n    \"status\": true,\r\n    \"clientId\": 1\r\n}"
+										},
+										"url": {
+											"raw": "http://localhost:8082/api/v1/cuenta/create",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8082",
+											"path": [
+												"api",
+												"v1",
+												"cuenta",
+												"create"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"name": "Content-Type",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"path\": \"/api/v1/cuenta/create\",\n    \"error\": \"Internal Server Error\",\n    \"message\": \"JSON parse error: Unrecognized field \\\"accountNumber\\\" (class com.tcs.arq.micro.accounts.infrastructure.adapter.in.rest.dto.request.AccountRequest), not marked as ignorable\",\n    \"timestamp\": \"2025-09-29T01:17:12.655672325Z\",\n    \"status\": 500\n}"
+								}
+							]
+						},
+						{
+							"name": "getAccountNumber",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8082/api/v1/cuenta/225487",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8082",
+									"path": [
+										"api",
+										"v1",
+										"cuenta",
+										"225487"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "error",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8082/api/v1/cuenta/1001",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8082",
+											"path": [
+												"api",
+												"v1",
+												"cuenta",
+												"1001"
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"name": "Content-Type",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"path\": \"/api/v1/cuenta/1001\",\n    \"error\": \"Not Found\",\n    \"message\": \"Cuenta no encontrada con número: 1001\",\n    \"timestamp\": \"2025-09-29T01:14:03.341137425Z\",\n    \"status\": 404\n}"
+								},
+								{
+									"name": "exito",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8082/api/v1/cuenta/225487",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8082",
+											"path": [
+												"api",
+												"v1",
+												"cuenta",
+												"225487"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"name": "Content-Type",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"accountNumber\": 225487,\n    \"accountType\": \"Corriente\",\n    \"initialBalance\": 100,\n    \"status\": true,\n    \"clientId\": 1\n}"
+								}
+							]
+						},
+						{
+							"name": "getAccountAll",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8082/api/v1/cuenta/all?estado=true",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8082",
+									"path": [
+										"api",
+										"v1",
+										"cuenta",
+										"all"
+									],
+									"query": [
+										{
+											"key": "estado",
+											"value": "true"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "getAccountAll",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8082/api/v1/cuenta/all?estado=true",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8082",
+											"path": [
+												"api",
+												"v1",
+												"cuenta",
+												"all"
+											],
+											"query": [
+												{
+													"key": "estado",
+													"value": "true"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"name": "Content-Type",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"accountNumber\": 225487,\n        \"accountType\": \"Corriente\",\n        \"initialBalance\": 100,\n        \"status\": true,\n        \"clientId\": 1\n    },\n    {\n        \"accountNumber\": 478758,\n        \"accountType\": \"Ahorro\",\n        \"initialBalance\": 2000,\n        \"status\": true,\n        \"clientId\": 3\n    },\n    {\n        \"accountNumber\": 495878,\n        \"accountType\": \"Ahorros\",\n        \"initialBalance\": 0,\n        \"status\": true,\n        \"clientId\": 4\n    },\n    {\n        \"accountNumber\": 496825,\n        \"accountType\": \"Ahorros\",\n        \"initialBalance\": 540,\n        \"status\": true,\n        \"clientId\": 2\n    }\n]"
+								}
+							]
+						},
+						{
+							"name": "updateAccount",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"accountType\": \"Corriente\",\r\n    \"initialBalance\": 200.00,\r\n    \"status\": true,\r\n    \"clientId\": 1\r\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8082/api/v1/cuenta/225487",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8082",
+									"path": [
+										"api",
+										"v1",
+										"cuenta",
+										"225487"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "exito",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"accountType\": \"Corriente\",\r\n    \"initialBalance\": 200.00,\r\n    \"status\": true,\r\n    \"clientId\": 1\r\n}"
+										},
+										"url": {
+											"raw": "http://localhost:8082/api/v1/cuenta/225487",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8082",
+											"path": [
+												"api",
+												"v1",
+												"cuenta",
+												"225487"
+											]
+										}
+									},
+									"status": "Accepted",
+									"code": 202,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"name": "Content-Type",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"accountNumber\": 225487,\n    \"accountType\": \"Corriente\",\n    \"initialBalance\": 200,\n    \"status\": true,\n    \"clientId\": 1\n}"
+								},
+								{
+									"name": "updateAccount",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"accountType\": \"Corriente\",\r\n    \"initialBalance\": -200.00,\r\n    \"status\": true,\r\n    \"clientId\": 1\r\n}"
+										},
+										"url": {
+											"raw": "http://localhost:8082/api/v1/cuenta/225487",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8082",
+											"path": [
+												"api",
+												"v1",
+												"cuenta",
+												"225487"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"name": "Content-Type",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"path\": \"/api/v1/cuenta/225487\",\n    \"error\": \"Bad Request\",\n    \"message\": \"Validation failed\",\n    \"errors\": {\n        \"initialBalance\": \"El saldo inicial no puede ser negativo\"\n    },\n    \"timestamp\": \"2025-09-29T01:19:52.213875453Z\",\n    \"status\": 400\n}"
+								}
+							]
+						},
+						{
+							"name": "deleteAccount",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8082/api/v1/cuenta/478758",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8082",
+									"path": [
+										"api",
+										"v1",
+										"cuenta",
+										"478758"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "exito",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8082/api/v1/cuenta/225487",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8082",
+											"path": [
+												"api",
+												"v1",
+												"cuenta",
+												"225487"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"name": "Content-Type",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"La cuenta ha sido eliminada con éxito\",\n    \"cuenta\": {\n        \"accountNumber\": 225487,\n        \"accountType\": \"Corriente\",\n        \"initialBalance\": 200,\n        \"status\": false,\n        \"clientId\": 1\n    }\n}"
+								},
+								{
+									"name": "error",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8082/api/v1/cuenta/225487",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8082",
+											"path": [
+												"api",
+												"v1",
+												"cuenta",
+												"225487"
+											]
+										}
+									},
+									"status": "Conflict",
+									"code": 409,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"name": "Content-Type",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"path\": \"/api/v1/cuenta/225487\",\n    \"error\": \"Conflict\",\n    \"message\": \"La cuenta con número 225487 ya está inactiva.\",\n    \"timestamp\": \"2025-09-29T01:21:57.341764623Z\",\n    \"status\": 409\n}"
+								}
+							]
+						},
+						{
+							"name": "createByClientName",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"clientName\": \"Jose Lema\",\r\n    \"accountType\": \"Ahorros\",\r\n    \"initialBalance\": 500.00\r\n  }"
+								},
+								"url": {
+									"raw": "http://localhost:8082/api/v1/cuenta/create-by-name",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8082",
+									"path": [
+										"api",
+										"v1",
+										"cuenta",
+										"create-by-name"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "exito",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"clientName\": \"Jose Lema\",\r\n    \"accountType\": \"Ahorros\",\r\n    \"initialBalance\": 500.00\r\n  }"
+										},
+										"url": {
+											"raw": "http://localhost:8082/api/v1/cuenta/create-by-name",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8082",
+											"path": [
+												"api",
+												"v1",
+												"cuenta",
+												"create-by-name"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"name": "Content-Type",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"accountNumber\": 496828,\n    \"accountType\": \"Ahorros\",\n    \"initialBalance\": 500,\n    \"status\": true,\n    \"clientId\": 1\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "F2",
+			"item": [
+				{
+					"name": "Registrar un movimiento",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"accountNumber\": 225487,\r\n  \"amount\": 150.00,\r\n  \"description\": \"Deposita en cajero\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:8082/api/v1/cuenta/transaction",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"v1",
+								"cuenta",
+								"transaction"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "+150",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"accountNumber\": 225487,\r\n  \"amount\": 150.00,\r\n  \"description\": \"Deposita en cajero\"\r\n}\r\n"
+								},
+								"url": {
+									"raw": "http://localhost:8082/api/v1/cuenta/transaction",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8082",
+									"path": [
+										"api",
+										"v1",
+										"cuenta",
+										"transaction"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"accountNumber\": 225487,\n    \"accountType\": \"Corriente\",\n    \"initialBalance\": 250,\n    \"status\": true,\n    \"clientId\": 1\n}"
+						},
+						{
+							"name": "-150",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"accountNumber\": 225487,\r\n  \"amount\": -150.00,\r\n  \"description\": \"Deposita en cajero\"\r\n}\r\n"
+								},
+								"url": {
+									"raw": "http://localhost:8082/api/v1/cuenta/transaction",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8082",
+									"path": [
+										"api",
+										"v1",
+										"cuenta",
+										"transaction"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"accountNumber\": 225487,\n    \"accountType\": \"Corriente\",\n    \"initialBalance\": 250,\n    \"status\": true,\n    \"clientId\": 1\n}"
+						}
+					]
+				},
+				{
+					"name": "getAccountNumber",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/v1/cuenta/225487",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"v1",
+								"cuenta",
+								"225487"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "exito",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8082/api/v1/cuenta/225487",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8082",
+									"path": [
+										"api",
+										"v1",
+										"cuenta",
+										"225487"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"accountNumber\": 225487,\n    \"accountType\": \"Corriente\",\n    \"initialBalance\": 100.00,\n    \"status\": true,\n    \"clientId\": 1\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "F3",
+			"item": [
+				{
+					"name": "Registrar un movimiento Copy",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"accountNumber\": 225487,\r\n  \"amount\": -150.00,\r\n  \"description\": \"Retiro en cajero\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:8082/api/v1/cuenta/transaction",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"v1",
+								"cuenta",
+								"transaction"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "exito",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"accountNumber\": 225487,\r\n    \"transactionType\": \"Deposito\",\r\n    \"amount\": 600.00\r\n  }"
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1/cuenta/transaction",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"cuenta",
+										"transaction"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"path\": \"/api/v1/cuenta/transaction\",\n    \"error\": \"Bad Request\",\n    \"message\": \"Saldo no disponible\",\n    \"timestamp\": \"2025-09-29T02:48:59.501655630Z\",\n    \"status\": 400\n}"
+						}
+					]
+				},
+				{
+					"name": "getAccountNumber",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/v1/cuenta/225487",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"v1",
+								"cuenta",
+								"225487"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "exito",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8082/api/v1/cuenta/225487",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8082",
+									"path": [
+										"api",
+										"v1",
+										"cuenta",
+										"225487"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"accountNumber\": 225487,\n    \"accountType\": \"Corriente\",\n    \"initialBalance\": 100.00,\n    \"status\": true,\n    \"clientId\": 1\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "F4",
+			"item": [
+				{
+					"name": "reporte pr Client",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"clientId\": 1,\r\n    \"from\": \"2025-09-01T00:00:00\",\r\n    \"to\": \"2025-09-30T23:59:59\"\r\n  }"
+						},
+						"url": {
+							"raw": "http://localhost:8082/api/v1/cuenta/reporte",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"v1",
+								"cuenta",
+								"reporte"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "exito",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"clientId\": 1,\r\n    \"from\": \"2025-09-01T00:00:00\",\r\n    \"to\": \"2025-09-30T23:59:59\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8082/api/v1/cuenta/reporte",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8082",
+									"path": [
+										"api",
+										"v1",
+										"cuenta",
+										"reporte"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"accountNumber\": 225487,\n        \"accountType\": \"Corriente\",\n        \"initialBalance\": 100,\n        \"status\": true,\n        \"transactions\": [\n            {\n                \"transactionId\": 5,\n                \"date\": \"2025-09-29T03:37:46\",\n                \"transactionType\": \"DEPOSITO\",\n                \"amount\": 150,\n                \"balance\": 250,\n                \"accountNumber\": null\n            },\n            {\n                \"transactionId\": 6,\n                \"date\": \"2025-09-29T03:38:00\",\n                \"transactionType\": \"DEPOSITO\",\n                \"amount\": 150,\n                \"balance\": 400,\n                \"accountNumber\": null\n            },\n            {\n                \"transactionId\": 7,\n                \"date\": \"2025-09-29T03:38:02\",\n                \"transactionType\": \"DEPOSITO\",\n                \"amount\": 150,\n                \"balance\": 550,\n                \"accountNumber\": null\n            },\n            {\n                \"transactionId\": 8,\n                \"date\": \"2025-09-29T03:39:05\",\n                \"transactionType\": \"RETIRO\",\n                \"amount\": -150,\n                \"balance\": 400,\n                \"accountNumber\": null\n            },\n            {\n                \"transactionId\": 9,\n                \"date\": \"2025-09-29T03:39:07\",\n                \"transactionType\": \"RETIRO\",\n                \"amount\": -150,\n                \"balance\": 250,\n                \"accountNumber\": null\n            },\n            {\n                \"transactionId\": 10,\n                \"date\": \"2025-09-29T03:39:09\",\n                \"transactionType\": \"RETIRO\",\n                \"amount\": -150,\n                \"balance\": 100,\n                \"accountNumber\": null\n            }\n        ]\n    },\n    {\n        \"accountNumber\": 496826,\n        \"accountType\": \"Ahorros\",\n        \"initialBalance\": 500,\n        \"status\": true,\n        \"transactions\": []\n    },\n    {\n        \"accountNumber\": 496827,\n        \"accountType\": \"Ahorros\",\n        \"initialBalance\": 500,\n        \"status\": true,\n        \"transactions\": []\n    },\n    {\n        \"accountNumber\": 496828,\n        \"accountType\": \"Ahorros\",\n        \"initialBalance\": 500,\n        \"status\": true,\n        \"transactions\": []\n    },\n    {\n        \"accountNumber\": 496829,\n        \"accountType\": \"Ahorros\",\n        \"initialBalance\": 500,\n        \"status\": true,\n        \"transactions\": []\n    },\n    {\n        \"accountNumber\": 496830,\n        \"accountType\": \"Ahorros\",\n        \"initialBalance\": 500,\n        \"status\": true,\n        \"transactions\": []\n    },\n    {\n        \"accountNumber\": 496831,\n        \"accountType\": \"Ahorros\",\n        \"initialBalance\": 500,\n        \"status\": true,\n        \"transactions\": []\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "reporte por cuenta",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"clientId\": 1,\r\n    \"from\": \"2025-09-01T00:00:00\",\r\n    \"to\": \"2025-09-30T23:59:59\"\r\n  }"
+						},
+						"url": {
+							"raw": "http://localhost:8082/api/v1/cuenta/transaction/225487?from=2025-09-01T00:00:00&to=2025-09-30T23:59:59",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"v1",
+								"cuenta",
+								"transaction",
+								"225487"
+							],
+							"query": [
+								{
+									"key": "from",
+									"value": "2025-09-01T00:00:00"
+								},
+								{
+									"key": "to",
+									"value": "2025-09-30T23:59:59"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "exito",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"clientId\": 1,\r\n    \"from\": \"2025-09-01T00:00:00\",\r\n    \"to\": \"2025-09-30T23:59:59\"\r\n  }"
+								},
+								"url": {
+									"raw": "http://localhost:8082/api/v1/cuenta/transaction/225487?from=2025-09-01T00:00:00&to=2025-09-30T23:59:59",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8082",
+									"path": [
+										"api",
+										"v1",
+										"cuenta",
+										"transaction",
+										"225487"
+									],
+									"query": [
+										{
+											"key": "from",
+											"value": "2025-09-01T00:00:00"
+										},
+										{
+											"key": "to",
+											"value": "2025-09-30T23:59:59"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": null,\n        \"accountNumber\": null,\n        \"amount\": 150,\n        \"description\": null,\n        \"date\": \"2025-09-29T03:37:46\"\n    },\n    {\n        \"id\": null,\n        \"accountNumber\": null,\n        \"amount\": 150,\n        \"description\": null,\n        \"date\": \"2025-09-29T03:38:00\"\n    },\n    {\n        \"id\": null,\n        \"accountNumber\": null,\n        \"amount\": 150,\n        \"description\": null,\n        \"date\": \"2025-09-29T03:38:02\"\n    },\n    {\n        \"id\": null,\n        \"accountNumber\": null,\n        \"amount\": -150,\n        \"description\": null,\n        \"date\": \"2025-09-29T03:39:05\"\n    },\n    {\n        \"id\": null,\n        \"accountNumber\": null,\n        \"amount\": -150,\n        \"description\": null,\n        \"date\": \"2025-09-29T03:39:07\"\n    },\n    {\n        \"id\": null,\n        \"accountNumber\": null,\n        \"amount\": -150,\n        \"description\": null,\n        \"date\": \"2025-09-29T03:39:09\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "reporte de todas las cuetnas",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8082/api/v1/cuenta/transaction/reporteAll?from=2025-09-01T00:00:00&to=2025-09-30T23:59:59",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"v1",
+								"cuenta",
+								"transaction",
+								"reporteAll"
+							],
+							"query": [
+								{
+									"key": "from",
+									"value": "2025-09-01T00:00:00"
+								},
+								{
+									"key": "to",
+									"value": "2025-09-30T23:59:59"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "exito",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:8082/api/v1/cuenta/transaction/reporteAll?from=2025-09-01T00:00:00&to=2025-09-30T23:59:59",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8082",
+									"path": [
+										"api",
+										"v1",
+										"cuenta",
+										"transaction",
+										"reporteAll"
+									],
+									"query": [
+										{
+											"key": "from",
+											"value": "2025-09-01T00:00:00"
+										},
+										{
+											"key": "to",
+											"value": "2025-09-30T23:59:59"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"date\": \"2025-09-29T04:10:29\",\n        \"clientName\": \"Jose Lema\",\n        \"accountNumber\": 225487,\n        \"accountType\": \"Corriente\",\n        \"initialBalance\": 550,\n        \"status\": true,\n        \"transactionAmount\": 150,\n        \"availableBalance\": 700\n    },\n    {\n        \"date\": \"2025-09-29T04:10:29\",\n        \"clientName\": \"Jose Lema\",\n        \"accountNumber\": 225487,\n        \"accountType\": \"Corriente\",\n        \"initialBalance\": 700,\n        \"status\": true,\n        \"transactionAmount\": 150,\n        \"availableBalance\": 850\n    },\n    {\n        \"date\": \"2025-09-29T04:10:28\",\n        \"clientName\": \"Jose Lema\",\n        \"accountNumber\": 225487,\n        \"accountType\": \"Corriente\",\n        \"initialBalance\": 400,\n        \"status\": true,\n        \"transactionAmount\": 150,\n        \"availableBalance\": 550\n    },\n    {\n        \"date\": \"2025-09-29T04:10:27\",\n        \"clientName\": \"Jose Lema\",\n        \"accountNumber\": 225487,\n        \"accountType\": \"Corriente\",\n        \"initialBalance\": 100,\n        \"status\": true,\n        \"transactionAmount\": 150,\n        \"availableBalance\": 250\n    },\n    {\n        \"date\": \"2025-09-29T04:10:27\",\n        \"clientName\": \"Jose Lema\",\n        \"accountNumber\": 225487,\n        \"accountType\": \"Corriente\",\n        \"initialBalance\": 250,\n        \"status\": true,\n        \"transactionAmount\": 150,\n        \"availableBalance\": 400\n    },\n    {\n        \"date\": \"2025-09-29T03:39:09\",\n        \"clientName\": \"Jose Lema\",\n        \"accountNumber\": 225487,\n        \"accountType\": \"Corriente\",\n        \"initialBalance\": 250,\n        \"status\": true,\n        \"transactionAmount\": -150,\n        \"availableBalance\": 100\n    },\n    {\n        \"date\": \"2025-09-29T03:39:07\",\n        \"clientName\": \"Jose Lema\",\n        \"accountNumber\": 225487,\n        \"accountType\": \"Corriente\",\n        \"initialBalance\": 400,\n        \"status\": true,\n        \"transactionAmount\": -150,\n        \"availableBalance\": 250\n    },\n    {\n        \"date\": \"2025-09-29T03:39:05\",\n        \"clientName\": \"Jose Lema\",\n        \"accountNumber\": 225487,\n        \"accountType\": \"Corriente\",\n        \"initialBalance\": 550,\n        \"status\": true,\n        \"transactionAmount\": -150,\n        \"availableBalance\": 400\n    },\n    {\n        \"date\": \"2025-09-29T03:38:02\",\n        \"clientName\": \"Jose Lema\",\n        \"accountNumber\": 225487,\n        \"accountType\": \"Corriente\",\n        \"initialBalance\": 400,\n        \"status\": true,\n        \"transactionAmount\": 150,\n        \"availableBalance\": 550\n    },\n    {\n        \"date\": \"2025-09-29T03:38:00\",\n        \"clientName\": \"Jose Lema\",\n        \"accountNumber\": 225487,\n        \"accountType\": \"Corriente\",\n        \"initialBalance\": 250,\n        \"status\": true,\n        \"transactionAmount\": 150,\n        \"availableBalance\": 400\n    },\n    {\n        \"date\": \"2025-09-29T03:37:46\",\n        \"clientName\": \"Jose Lema\",\n        \"accountNumber\": 225487,\n        \"accountType\": \"Corriente\",\n        \"initialBalance\": 100,\n        \"status\": true,\n        \"transactionAmount\": 150,\n        \"availableBalance\": 250\n    }\n]"
+						}
+					]
+				}
+			]
+		}
+	]
+}
